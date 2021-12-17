@@ -32,11 +32,11 @@ public class OrderRepositorio {
     public void delete(Order order) {
         orderCrudRepository.delete(order);
     }
-    
-//    public Optional<Order> lastUserId(){
-//        return orderCrudRepository.findTopByOrderByIdDesc();
-//    }
-    
+    // cambios 
+    public Optional<Order> lastUserId(){
+        return orderCrudRepository.findTopByOrderByIdDesc();
+    }
+    //<--
     public List<Order> getOrderByZone(String zone){
         return orderCrudRepository.findBySalesManZone(zone);
     }
