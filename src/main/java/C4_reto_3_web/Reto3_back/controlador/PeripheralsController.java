@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package C4_reto_3_web.Reto3_back.controlador;
 
 import C4_reto_3_web.Reto3_back.servicio.PeripheralsService;
@@ -21,10 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- *
- * @author PRESTAMO
- */
 @RestController
 @RequestMapping("/api/peripherals")
 @CrossOrigin("*")

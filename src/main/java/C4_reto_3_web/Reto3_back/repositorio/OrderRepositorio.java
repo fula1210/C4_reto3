@@ -7,18 +7,14 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author PRESTAMO
- */
-
 @Repository
 public class OrderRepositorio {
     @Autowired
     private InterfaceOrder orderCrudRepository;
 
     public List<Order> getAll() {
-        return (List<Order>) orderCrudRepository.findAll();
+       // return (List<Order>) orderCrudRepository.findAll();
+       return orderCrudRepository.findAll();
     }
 
     public Optional<Order> getOrder(int id) {
@@ -37,7 +33,11 @@ public class OrderRepositorio {
         orderCrudRepository.delete(order);
     }
     
-    public Optional<Order> lastUserId(){
-        return orderCrudRepository.findTopByOrderByIdDesc();
+//    public Optional<Order> lastUserId(){
+//        return orderCrudRepository.findTopByOrderByIdDesc();
+//    }
+    
+    public List<Order> getOrderByZone(String zone){
+        return orderCrudRepository.findBySalesManZone(zone);
     }
 }

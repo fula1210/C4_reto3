@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package C4_reto_3_web.Reto3_back.servicio;
 
 import C4_reto_3_web.Reto3_back.modelo.Peripherals;
@@ -9,19 +5,16 @@ import C4_reto_3_web.Reto3_back.repositorio.PeripheralsRepositorio;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
+//import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
-/**
- *
- * @author PRESTAMO
- */
+
 @Service
 public class PeripheralsService {
  @Autowired
     private PeripheralsRepositorio clotheRepository;
  
- @Autowired
-    private MongoTemplate mongoTemplate;
+// @Autowired
+//    private MongoTemplate mongoTemplate;
 
     public List<Peripherals> getAll() {
         return clotheRepository.getAll();

@@ -21,12 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- *
- * @author PRESTAMO
- */
-
-
 @RestController
 @RequestMapping("/api/user")
 @CrossOrigin("*")
@@ -34,11 +28,19 @@ public class UserController {
  @Autowired
     private UserService userService;
      
-     @GetMapping("/all")
+    @GetMapping("/all")
     public List<User> getAll() {
         return userService.getAll();
     }
-      @PostMapping("/new")
+    
+    // nuevo
+    @GetMapping("/{id}")
+    public Optional<User> getUser(@PathVariable("id") Integer id) {
+        return userService.getUser(id);
+    }
+    //<--
+    
+    @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
     public User create(@RequestBody User user) {
         return userService.create(user);

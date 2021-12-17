@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package C4_reto_3_web.Reto3_back.servicio;
 
 import C4_reto_3_web.Reto3_back.modelo.User;
@@ -11,10 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- *
- * @author PRESTAMO
- */
+
 @Service
 public class UserService {
     @Autowired
@@ -30,8 +23,33 @@ public class UserService {
     }
 
     public User create(User user) {
+        
+//        //obtiene el maximo id existente en la coleccion
+//        Optional<User> userIdMaximo = userRepository.lastUserId();
+//        
+//        //si el id del Usaurio que se recibe como parametro es nulo, entonces valida el maximo id existente en base de datos
+//        if (user.getId() == null) {
+//            //valida el maximo id generado, si no hay ninguno aun el primer id sera 1
+//            if (userIdMaximo.isEmpty())
+//                user.setId(1);
+//            //si retorna informacion suma 1 al maximo id existente y lo asigna como el codigo del usuario
+//            else
+//                user.setId(userIdMaximo.get().getId() + 1);
+//        }
+//        
+//        Optional<User> e = userRepository.getUser(user.getId());
+//        if (e.isEmpty()) {
+//            if (emailExists(user.getEmail())==false){
+//                return userRepository.create(user);
+//            }else{
+//                return user;
+//            }
+//        }else{
+//            return user;
+//        }
+//        
         if (user.getId() == null) {
-            return user;            
+            return user;
         }else {
             Optional<User> e = userRepository.getUser(user.getId());
             if (e.isEmpty()) {
@@ -42,8 +60,9 @@ public class UserService {
                 }
             }else{
                 return user;
-            }           
+            }
         }
+
     }
 
     public User update(User user) {
@@ -57,6 +76,15 @@ public class UserService {
                 if (user.getName() != null) {
                     userDb.get().setName(user.getName());
                 }
+                // nuevo
+                if (user.getBirthtDay() != null){
+                   userDb.get().setBirthtDay(user.getBirthtDay());
+                }
+
+                if (user.getMonthBirthtDay() != null){
+                    userDb.get().setMonthBirthtDay(user.getMonthBirthtDay());
+                }
+                //<--
                 if (user.getAddress() != null) {
                     userDb.get().setAddress(user.getAddress());
                 }
